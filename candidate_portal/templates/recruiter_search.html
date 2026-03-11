@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-gradient">
+    <div style="padding: 40px;">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h1 class="text-gradient-secondary" style="font-size: 48px;">
+                <i class="fas fa-search"></i> FIND CANDIDATES
+            </h1>
+            <p style="color: var(--text-white); font-size: 18px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                Search through our database of talented professionals
+            </p>
+        </div>
+
+        <div class="card">
+            <form method="POST" action="/recruiter/search">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                    <div class="form-group">
+                        <label style="color: var(--secondary-800);">SKILL</label>
+                        <input type="text" name="skill" class="form-control" placeholder="Python">
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color: var(--secondary-800);">MIN EXPERIENCE</label>
+                        <input type="number" name="min_exp" class="form-control" placeholder="Years">
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color: var(--secondary-800);">LOCATION</label>
+                        <input type="text" name="location" class="form-control" placeholder="New York">
+                    </div>
+
+                    <div class="form-group">
+                        <label style="color: var(--secondary-800);">EMAIL</label>
+                        <input type="email" name="email" class="form-control" placeholder="candidate@email.com">
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button type="submit" class="btn btn-secondary btn-large">
+                        <i class="fas fa-search"></i>
+                        SEARCH NOW
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        {% if search_performed %}
+        <div class="card" style="margin-top: 30px;">
+            <h2 style="color: var(--secondary-800); margin-bottom: 20px;">
+                <i class="fas fa-users"></i>
+                RESULTS: {{ results|length }} CANDIDATES
+            </h2>
+
+            {% if results %}
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>EMAIL</th>
+                            <th>SKILLS</th>
+                            <th>EXPERIENCE</th>
+                            <th>LOCATION</th>
+                            <th>RESUME</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for candidate in results %}
+                        <tr>
+                            <td><strong>{{ candidate.name }}</strong></td>
+                            <td>{{ candidate.email }}</td>
+                            <td>{{ candidate.skills }}</td>
+                            <td>{{ candidate.experience_years }} years</td>
+                            <td>{{ candidate.location }}</td>
+                            <td>
+                                {% if candidate.resume_filename %}
+                                <a href="/uploads/{{ candidate.resume_filename }}" class="btn btn-small btn-primary"
+                                    style="padding: 8px 16px; font-size: 12px; min-width: auto;">
+                                    <i class="fas fa-download"></i> PDF
+                                </a>
+                                {% else %}
+                                <span style="color: #999;">No resume</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <div style="text-align: center; padding: 60px; background: #f8f4ff; border-radius: var(--radius-lg);">
+                <i class="fas fa-search" style="font-size: 60px; color: var(--secondary-700); opacity: 0.5;"></i>
+                <h3 style="color: var(--secondary-800); margin-top: 20px;">No candidates found</h3>
+                <p style="color: var(--text-dark);">Try adjusting your search filters</p>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="/recruiter/logout" class="btn btn-outline">
+                <i class="fas fa-sign-out-alt"></i>
+                LOGOUT
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

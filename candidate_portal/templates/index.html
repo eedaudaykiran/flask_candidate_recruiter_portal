@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-gradient">
+    <div class="login-container">
+        <div class="login-box">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <span style="font-size: 80px;">🚀</span>
+            </div>
+
+            <h1 style="color: #4A1D6D; font-size: 48px; text-align: center; font-weight: 900;">
+                WELCOME TO
+            </h1>
+            <h1 style="color: #0A4D5C; font-size: 52px; text-align: center; font-weight: 900; margin-bottom: 20px;">
+                PORTAL
+            </h1>
+
+            <p style="color: #666; text-align: center; font-size: 18px; margin-bottom: 40px;">
+                Connect with Top Talent & Opportunities
+            </p>
+
+            <!-- ALL BUTTONS VISIBLE NOW -->
+            <div style="display: flex; flex-direction: column; gap: 15px;">
+                <a href="/candidate/login"
+                    style="display: block; padding: 16px; background: #4A1D6D; color: white; text-decoration: none; border-radius: 50px; font-size: 18px; font-weight: 700; text-align: center; box-shadow: 0 4px 15px rgba(74, 29, 109, 0.3);">
+                    <i class="fas fa-user-tie"></i> CANDIDATE LOGIN
+                </a>
+
+                <a href="/candidate/register"
+                    style="display: block; padding: 16px; background: #C33767; color: white; text-decoration: none; border-radius: 50px; font-size: 18px; font-weight: 700; text-align: center; box-shadow: 0 4px 15px rgba(195, 55, 103, 0.3);">
+                    <i class="fas fa-user-plus"></i> REGISTER NOW
+                </a>
+
+                <a href="/recruiter/login"
+                    style="display: block; padding: 16px; background: #0A4D5C; color: white; text-decoration: none; border-radius: 50px; font-size: 18px; font-weight: 700; text-align: center; box-shadow: 0 4px 15px rgba(10, 77, 92, 0.3);">
+                    <i class="fas fa-briefcase"></i> RECRUITER LOGIN
+                </a>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #eee;">
+                <p style="color: #666;">
+                    <i class="fas fa-shield-alt" style="color: #4A1D6D;"></i>
+                    Secure Platform • Trusted by 1000+ Companies
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

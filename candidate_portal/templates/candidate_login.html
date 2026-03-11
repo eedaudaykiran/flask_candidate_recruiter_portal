@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-gradient">
+    <div class="login-container">
+        <div class="login-box">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-user-tie" style="font-size: 60px; color: #4A1D6D;"></i>
+            </div>
+
+            <h1 style="color: #4A1D6D; font-size: 42px; text-align: center; font-weight: 900; margin-bottom: 10px;">
+                CANDIDATE LOGIN
+            </h1>
+            <p style="color: #666; text-align: center; margin-bottom: 30px; font-size: 16px;">
+                Access your profile dashboard
+            </p>
+
+            <form method="POST" action="/candidate/login">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; color: #333; font-weight: 600;">
+                        <i class="fas fa-envelope" style="color: #4A1D6D;"></i> Email Address
+                    </label>
+                    <input type="email" name="email" required
+                        style="width: 100%; padding: 15px 20px; border: 2px solid #ddd; border-radius: 50px; font-size: 16px;"
+                        placeholder="your@email.com">
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <label style="display: block; margin-bottom: 8px; color: #333; font-weight: 600;">
+                        <i class="fas fa-lock" style="color: #4A1D6D;"></i> Password
+                    </label>
+                    <input type="password" name="password" required
+                        style="width: 100%; padding: 15px 20px; border: 2px solid #ddd; border-radius: 50px; font-size: 16px;"
+                        placeholder="Enter password">
+                </div>
+
+                <!-- LOGIN BUTTON - VISIBLE NOW -->
+                <button type="submit"
+                    style="width: 100%; padding: 16px 20px; background: #4A1D6D; color: white; border: none; border-radius: 50px; font-size: 18px; font-weight: 700; cursor: pointer; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(74, 29, 109, 0.3);">
+                    <i class="fas fa-sign-in-alt"></i> LOGIN NOW
+                </button>
+            </form>
+
+            <div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 2px solid #eee;">
+                <p style="color: #666; margin-bottom: 15px;">New candidate?</p>
+
+                <!-- REGISTER BUTTON - VISIBLE NOW -->
+                <a href="/candidate/register"
+                    style="display: inline-block; padding: 14px 30px; background: #C33767; color: white; text-decoration: none; border-radius: 50px; font-weight: 700; margin-right: 10px; box-shadow: 0 4px 15px rgba(195, 55, 103, 0.3);">
+                    <i class="fas fa-user-plus"></i> CREATE ACCOUNT
+                </a>
+
+                <!-- HOME BUTTON - VISIBLE NOW -->
+                <a href="/"
+                    style="display: inline-block; padding: 14px 30px; background: transparent; color: #333; text-decoration: none; border-radius: 50px; font-weight: 700; border: 2px solid #ddd;">
+                    <i class="fas fa-home"></i> HOME
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ADD THIS CSS TO ENSURE PROPER BACKGROUND -->
+<style>
+    .bg-gradient {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+
+    .login-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 80px);
+    }
+
+    .login-box {
+        background: white;
+        border-radius: 30px;
+        padding: 50px;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 768px) {
+        .login-box {
+            padding: 30px 20px;
+        }
+
+        a,
+        button {
+            width: 100%;
+            margin: 5px 0 !important;
+        }
+    }
+</style>
+{% endblock %}

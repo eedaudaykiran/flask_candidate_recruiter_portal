@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Welcome, {{ candidate.name }}!</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+        <!-- Profile Update Section -->
+        <div>
+            <h3>Update Profile</h3>
+            <form method="POST">
+                <input type="hidden" name="update_profile" value="1">
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" value="{{ candidate.name }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="skills">Skills (comma-separated)</label>
+                    <input type="text" id="skills" name="skills" value="{{ candidate.skills }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience_years">Years of Experience</label>
+                    <input type="number" id="experience_years" name="experience_years"
+                        value="{{ candidate.experience_years }}" min="0" step="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" name="location" value="{{ candidate.location }}" required>
+                </div>
+
+                <button type="submit">Update Profile</button>
+            </form>
+        </div>
+
+        <!-- Resume Upload Section -->
+        <div>
+            <h3>Upload Resume</h3>
+            <p>Current resume:
+                {% if candidate.resume_filename %}
+                <strong>{{ candidate.resume_filename }}</strong>
+                {% else %}
+                <em>No resume uploaded</em>
+                {% endif %}
+            </p>
+
+            <form method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="upload_resume" value="1">
+
+                <div class="form-group">
+                    <label for="resume">Select PDF Resume</label>
+                    <input type="file" id="resume" name="resume" accept=".pdf" required>
+                </div>
+
+                <button type="submit">Upload Resume</button>
+            </form>
+
+            <p class="mt-4"><small>Note: Only PDF files are allowed. Max size: 16MB</small></p>
+        </div>
+    </div>
+
+    <!-- Profile Summary -->
+    <div class="mt-4">
+        <h3>Your Profile Summary</h3>
+        <table>
+            <tr>
+                <th>Email</th>
+                <td>{{ candidate.email }}</td>
+            </tr>
+            <tr>
+                <th>Skills</th>
+                <td>{{ candidate.skills }}</td>
+            </tr>
+            <tr>
+                <th>Experience</th>
+                <td>{{ candidate.experience_years }} years</td>
+            </tr>
+            <tr>
+                <th>Location</th>
+                <td>{{ candidate.location }}</td>
+            </tr>
+            <tr>
+                <th>Resume</th>
+                <td>
+                    {% if candidate.resume_filename %}
+                    Uploaded
+                    {% else %}
+                    Not uploaded
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

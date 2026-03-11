@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-gradient">
+    <div class="login-container">
+        <div class="login-box" style="max-width: 600px;">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-user-plus" style="font-size: 60px; color: #C33767;"></i>
+            </div>
+
+            <h1 style="color: #C33767; font-size: 42px; text-align: center; font-weight: 900; margin-bottom: 10px;">
+                CREATE ACCOUNT
+            </h1>
+            <p style="color: #666; text-align: center; margin-bottom: 30px; font-size: 16px;">
+                Join as a candidate
+            </p>
+
+            <form method="POST" action="/candidate/register">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; color: #333; font-weight: 600;">Full Name</label>
+                    <input type="text" name="name" required
+                        style="width: 100%; padding: 15px 20px; border: 2px solid #ddd; border-radius: 50px; font-size: 16px;"
+                        placeholder="John Doe">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; color: #333; font-weight: 600;">Email
+                        Address</label>
+                    <input type="email" name="email" required
+                        style="width: 100%; padding: 15px 20px; border: 2px solid #ddd; border-radius: 50px; font-size: 16px;"
+                        placeholder="john@example.com">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; color: #333; font-weight: 600;">Password</label>
+                    <input type="password" name="password" required
+                        style="width: 100%; padding: 15px 20px; border: 2px solid #ddd; border-radius: 50px; font-size: 16px;"
+                        placeholder="Create password">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; color: #333; font-weight: 600;">Skills</label>
+                    <input type="text" name="skills" required
+                        style="width: 100%; padding: 15px 20px; border: 2px solid #ddd; border-radius: 50px; font-size: 16px;"
+                        placeholder="Python, JavaScript, SQL">
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; color: #333; font-weight: 600;">Experience
+                        (years)</label>
+                    <input type="number" name="experience_years" required
+                        style="width: 100%; padding: 15px 20px; border: 2px solid #ddd; border-radius: 50px; font-size: 16px;"
+                        placeholder="3">
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <label style="display: block; margin-bottom: 8px; color: #333; font-weight: 600;">Location</label>
+                    <input type="text" name="location" required
+                        style="width: 100%; padding: 15px 20px; border: 2px solid #ddd; border-radius: 50px; font-size: 16px;"
+                        placeholder="New York, NY">
+                </div>
+
+                <!-- REGISTER BUTTON - VISIBLE NOW -->
+                <button type="submit"
+                    style="width: 100%; padding: 16px 20px; background: #C33767; color: white; border: none; border-radius: 50px; font-size: 18px; font-weight: 700; cursor: pointer; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(195, 55, 103, 0.3);">
+                    <i class="fas fa-check-circle"></i> REGISTER NOW
+                </button>
+            </form>
+
+            <div style="text-align: center; margin-top: 20px; padding-top: 20px; border-top: 2px solid #eee;">
+                <p style="color: #666;">Already have an account?
+                    <a href="/candidate/login" style="color: #4A1D6D; font-weight: 700; text-decoration: none;">LOGIN
+                        HERE</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

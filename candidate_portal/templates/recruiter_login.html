@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="bg-gradient">
+    <div class="login-container">
+        <div class="login-box">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <i class="fas fa-briefcase" style="font-size: 60px; color: #0A4D5C;"></i>
+            </div>
+
+            <h1 style="color: #0A4D5C; font-size: 42px; text-align: center; font-weight: 900; margin-bottom: 10px;">
+                RECRUITER LOGIN
+            </h1>
+            <p style="color: #666; text-align: center; margin-bottom: 30px; font-size: 16px;">
+                Access your recruitment dashboard
+            </p>
+
+            <form method="POST" action="/recruiter/login">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 8px; color: #333; font-weight: 600;">
+                        <i class="fas fa-envelope"></i> Email Address
+                    </label>
+                    <input type="email" name="email" required
+                        style="width: 100%; padding: 15px 20px; border: 2px solid #ddd; border-radius: 50px; font-size: 16px;"
+                        placeholder="recruiter@company.com">
+                </div>
+
+                <div style="margin-bottom: 30px;">
+                    <label style="display: block; margin-bottom: 8px; color: #333; font-weight: 600;">
+                        <i class="fas fa-lock"></i> Password
+                    </label>
+                    <input type="password" name="password" required
+                        style="width: 100%; padding: 15px 20px; border: 2px solid #ddd; border-radius: 50px; font-size: 16px;"
+                        placeholder="Enter password">
+                </div>
+
+                <!-- LOGIN BUTTON - VISIBLE NOW -->
+                <button type="submit"
+                    style="width: 100%; padding: 16px 20px; background: #0A4D5C; color: white; border: none; border-radius: 50px; font-size: 18px; font-weight: 700; cursor: pointer; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(10, 77, 92, 0.3);">
+                    <i class="fas fa-sign-in-alt"></i> LOGIN NOW
+                </button>
+            </form>
+
+            <div style="margin-top: 30px; text-align: center;">
+                <!-- HOME BUTTON - VISIBLE NOW -->
+                <a href="/"
+                    style="display: inline-block; padding: 14px 30px; background: transparent; color: #333; text-decoration: none; border-radius: 50px; font-weight: 700; border: 2px solid #ddd;">
+                    <i class="fas fa-home"></i> BACK TO HOME
+                </a>
+            </div>
+
+            <!-- DEMO CREDENTIALS - VISIBLE NOW -->
+            <div style="margin-top: 30px; background: #f5f5f5; padding: 20px; border-radius: 15px;">
+                <p style="color: #0A4D5C; font-weight: 700; margin-bottom: 10px;">
+                    <i class="fas fa-info-circle"></i> Demo Credentials:
+                </p>
+                <p style="background: white; padding: 10px 15px; border-radius: 50px; margin: 5px 0;">
+                    <strong>Email:</strong> recruiter@example.com
+                </p>
+                <p style="background: white; padding: 10px 15px; border-radius: 50px; margin: 5px 0;">
+                    <strong>Password:</strong> recruiter123
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
