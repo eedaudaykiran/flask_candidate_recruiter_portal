@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = 'your-secret-key-change-this-in-production'  # Change this to a random string
 
 # Configuration
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = os.path.join(os.path.dirname(__file__), 'uploads')
 ALLOWED_EXTENSIONS = {'pdf'}
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB max file size
 
