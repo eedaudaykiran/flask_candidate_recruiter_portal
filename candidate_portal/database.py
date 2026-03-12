@@ -7,7 +7,7 @@ def get_connection():
     conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row  # This lets you access columns by name
     return conn
-
+      
 def create_tables():
     """Create all necessary tables if they don't exist"""
     conn = get_connection()
