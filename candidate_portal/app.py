@@ -1,3 +1,4 @@
+from candidate_portal.database import get_connection, create_tables
 from flask import Flask, render_template, request, redirect, session, send_from_directory, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
